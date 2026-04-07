@@ -13,10 +13,10 @@ modified: '2026-03-16'
 specificationVersion: '0.19'
 tags:
   - Big Data
-  - Distributed Computing
   - Data Processing
-  - MapReduce
+  - Distributed Computing
   - HDFS
+  - MapReduce
   - Open Source
 apis:
   - aid: hadoop:hdfs-rest-api
@@ -28,8 +28,8 @@ apis:
     baseURL: http://host:port/webhdfs/v1/
     tags:
       - File System
-      - Storage
       - REST API
+      - Storage
     properties:
       - type: Documentation
         url: https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html
@@ -41,8 +41,8 @@ apis:
     humanURL: https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html
     baseURL: http://rm-http-address:port/ws/v1/
     tags:
-      - Resource Management
       - Cluster Management
+      - Resource Management
       - REST API
     properties:
       - type: Documentation
@@ -52,8 +52,8 @@ apis:
     description: REST API for accessing MapReduce job history and statistics.
     humanURL: https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapredAppMasterRest.html
     tags:
-      - MapReduce
       - Job History
+      - MapReduce
       - REST API
     properties:
       - type: Documentation
