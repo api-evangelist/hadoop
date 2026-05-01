@@ -1,8 +1,14 @@
 # Apache Hadoop (hadoop)
-Apache Hadoop is an open-source framework for distributed storage and  processing of large datasets across clusters of computers using simple  programming models.
 
+Apache Hadoop is an open-source framework for distributed storage and processing of large datasets across clusters of computers using simple programming models. It includes HDFS for distributed storage, YARN for resource management, and MapReduce for parallel data processing.
 
-**URL:** [Visit APIs.json URL](https://hadoop.apache.org/)
+**URL:** [https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/apis.yml)
+
+## Scope
+
+- **Type:** Index
+- **Position:** Provider
+- **Access:** Open Source
 
 ## Tags:
 
@@ -10,17 +16,18 @@ Apache Hadoop is an open-source framework for distributed storage and  processin
 
 ## Timestamps
 
-- **Created:** 2024-01-15 
-- **Modified:** 2024-01-15 
+- **Created:** 2024-01-15
+- **Modified:** 2026-04-28
 
 ## APIs
 
 ### HDFS REST API (WebHDFS)
-RESTful API for Hadoop Distributed File System operations including  file operations, directory operations, and file status queries.
 
+RESTful API for Hadoop Distributed File System operations including file operations, directory operations, and file status queries.
 
 **Human URL:** [https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html)
 
+**Base URL:** `http://host:port/webhdfs/v1/`
 
 #### Tags:
 
@@ -29,14 +36,16 @@ RESTful API for Hadoop Distributed File System operations including  file operat
 #### Properties
 
 - [Documentation](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html)
-- [OpenAPI](https://example.com/webhdfs-openapi.yaml)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/openapi/hadoop-openapi.yml)
+- [Rules](https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/hadoop-rules.yml)
 
 ### YARN REST API
-RESTful API for Yet Another Resource Negotiator (YARN) for cluster  resource management, application submission, and monitoring.
 
+RESTful API for Yet Another Resource Negotiator (YARN) for cluster resource management, application submission, and monitoring.
 
 **Human URL:** [https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html)
 
+**Base URL:** `http://rm-http-address:port/ws/v1/`
 
 #### Tags:
 
@@ -45,14 +54,14 @@ RESTful API for Yet Another Resource Negotiator (YARN) for cluster  resource man
 #### Properties
 
 - [Documentation](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html)
-- [OpenAPI](https://example.com/yarn-openapi.yaml)
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/openapi/hadoop-openapi.yml)
+- [Rules](https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/hadoop-rules.yml)
 
 ### MapReduce History Server REST API
+
 REST API for accessing MapReduce job history and statistics.
 
-
 **Human URL:** [https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapredAppMasterRest.html](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapredAppMasterRest.html)
-
 
 #### Tags:
 
@@ -63,11 +72,12 @@ REST API for accessing MapReduce job history and statistics.
 - [Documentation](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapredAppMasterRest.html)
 
 ### HttpFS REST API
-HTTP REST API gateway supporting both webhdfs and httpfs operations  for HDFS access.
 
+HTTP REST API gateway supporting both webhdfs and httpfs operations for HDFS access.
 
 **Human URL:** [https://hadoop.apache.org/docs/stable/hadoop-hdfs-httpfs/index.html](https://hadoop.apache.org/docs/stable/hadoop-hdfs-httpfs/index.html)
 
+**Base URL:** `http://httpfs-host:port/webhdfs/v1/`
 
 #### Tags:
 
@@ -81,16 +91,14 @@ HTTP REST API gateway supporting both webhdfs and httpfs operations  for HDFS ac
 
 - [Website](https://hadoop.apache.org/)
 - [Documentation](https://hadoop.apache.org/docs/stable/)
-- [GitHub](https://github.com/apache/hadoop)
-- [Mailing Lists](https://hadoop.apache.org/mailing_lists.html)
-- [Issue Tracker](https://issues.apache.org/jira/projects/HADOOP)
-- [Wiki](https://cwiki.apache.org/confluence/display/HADOOP)
-- [Downloads](https://hadoop.apache.org/releases.html)
 - [Getting Started](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html)
-- [License](https://www.apache.org/licenses/LICENSE-2.0)
+- [GitHub Organization](https://github.com/apache/hadoop)
+- [Community](https://hadoop.apache.org/mailing_lists.html)
+- [Change Log](https://hadoop.apache.org/releases.html)
+- [Terms of Service](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## Maintainers
 
-**FN:** Apache Software Foundation
+**FN:** Kin Lane
 
-**Email:** user@hadoop.apache.org
+**Email:** kin@apievangelist.com

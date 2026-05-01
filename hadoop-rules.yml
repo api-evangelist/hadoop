@@ -1,0 +1,20 @@
+aid: hadoop
+name: Apache Hadoop REST API Rules
+description: >-
+  Governance and operational rules for the public REST APIs exposed by
+  Apache Hadoop, including WebHDFS, YARN ResourceManager, MapReduce History
+  Server, and HttpFS.
+specificationVersion: '0.1'
+rules:
+  - name: open-source
+    description: All APIs are part of the Apache 2.0 licensed Hadoop distribution.
+  - name: deployment-bound
+    description: Endpoints are only available against an operator-deployed Hadoop cluster; there is no SaaS endpoint.
+  - name: webhdfs-op-parameter
+    description: WebHDFS operations are selected by the `op` query parameter on a single path.
+  - name: yarn-base-path
+    description: YARN ResourceManager endpoints are namespaced under /ws/v1/cluster.
+  - name: authentication
+    description: Authentication is configurable per cluster (SPNEGO/Kerberos, simple, or delegation tokens).
+  - name: versioning
+    description: Track the `stable` Hadoop documentation version; APIs evolve with Hadoop releases.

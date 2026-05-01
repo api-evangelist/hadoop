@@ -9,7 +9,7 @@ image: https://hadoop.apache.org/hadoop-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/apis.yml
 type: Index
 created: '2024-01-15'
-modified: '2026-03-16'
+modified: '2026-04-28'
 specificationVersion: '0.19'
 tags:
   - Big Data
@@ -33,6 +33,10 @@ apis:
     properties:
       - type: Documentation
         url: https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/openapi/hadoop-openapi.yml
+      - type: Rules
+        url: https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/hadoop-rules.yml
   - aid: hadoop:yarn-rest-api
     name: YARN REST API
     description: >-
@@ -47,6 +51,10 @@ apis:
     properties:
       - type: Documentation
         url: https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/openapi/hadoop-openapi.yml
+      - type: Rules
+        url: https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/hadoop-rules.yml
   - aid: hadoop:mapreduce-history-server-api
     name: MapReduce History Server REST API
     description: REST API for accessing MapReduce job history and statistics.
