@@ -1,0 +1,744 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache Hadoop REST APIs
+  description: Aggregated OpenAPI definition for the public REST APIs exposed by Apache Hadoop. Includes WebHDFS for filesystem
+    operations and the YARN ResourceManager for cluster, application, and node management.
+  tags:
+  - Hadoop
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: hadoop
+    baseUri: http://localhost:50070
+    description: Apache Hadoop REST APIs HTTP API.
+    resources:
+    - name: webhdfs-v1-path
+      path: /webhdfs/v1/{path}
+      operations:
+      - name: webhdfsget
+        method: GET
+        description: WebHDFS GET operations
+        inputParameters:
+        - name: path
+          in: path
+          type: string
+          required: true
+        - name: op
+          in: query
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: webhdfsput
+        method: PUT
+        description: WebHDFS PUT operations
+        inputParameters:
+        - name: path
+          in: path
+          type: string
+          required: true
+        - name: op
+          in: query
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: webhdfspost
+        method: POST
+        description: WebHDFS POST operations
+        inputParameters:
+        - name: path
+          in: path
+          type: string
+          required: true
+        - name: op
+          in: query
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: webhdfsdelete
+        method: DELETE
+        description: WebHDFS DELETE
+        inputParameters:
+        - name: path
+          in: path
+          type: string
+          required: true
+        - name: op
+          in: query
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-info
+      path: /ws/v1/cluster/info
+      operations:
+      - name: getclusterinfo
+        method: GET
+        description: Cluster info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-metrics
+      path: /ws/v1/cluster/metrics
+      operations:
+      - name: getclustermetrics
+        method: GET
+        description: Cluster metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-scheduler
+      path: /ws/v1/cluster/scheduler
+      operations:
+      - name: getscheduler
+        method: GET
+        description: Scheduler info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-apps
+      path: /ws/v1/cluster/apps
+      operations:
+      - name: listapps
+        method: GET
+        description: List applications
+        inputParameters:
+        - name: state
+          in: query
+          type: string
+        - name: user
+          in: query
+          type: string
+        - name: queue
+          in: query
+          type: string
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: submitapp
+        method: POST
+        description: Submit a new application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-apps-appid
+      path: /ws/v1/cluster/apps/{appid}
+      operations:
+      - name: getapp
+        method: GET
+        description: Application details
+        inputParameters:
+        - name: appid
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-apps-appid-state
+      path: /ws/v1/cluster/apps/{appid}/state
+      operations:
+      - name: updateappstate
+        method: PUT
+        description: Update application state
+        inputParameters:
+        - name: appid
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-apps-appid-queue
+      path: /ws/v1/cluster/apps/{appid}/queue
+      operations:
+      - name: updateappqueue
+        method: PUT
+        description: Move application to a different queue
+        inputParameters:
+        - name: appid
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-apps-appid-priority
+      path: /ws/v1/cluster/apps/{appid}/priority
+      operations:
+      - name: updateapppriority
+        method: PUT
+        description: Update application priority
+        inputParameters:
+        - name: appid
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-apps-appid-appattempts
+      path: /ws/v1/cluster/apps/{appid}/appattempts
+      operations:
+      - name: listappattempts
+        method: GET
+        description: List application attempts
+        inputParameters:
+        - name: appid
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-nodes
+      path: /ws/v1/cluster/nodes
+      operations:
+      - name: listnodes
+        method: GET
+        description: List nodes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-nodes-nodeid
+      path: /ws/v1/cluster/nodes/{nodeid}
+      operations:
+      - name: getnode
+        method: GET
+        description: Node details
+        inputParameters:
+        - name: nodeid
+          in: path
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-appstatistics
+      path: /ws/v1/cluster/appstatistics
+      operations:
+      - name: getappstatistics
+        method: GET
+        description: Application statistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: hadoop-rest
+    description: REST adapter for Apache Hadoop REST APIs.
+    resources:
+    - path: /webhdfs/v1/{path}
+      name: webhdfsget
+      operations:
+      - method: GET
+        name: webhdfsget
+        description: WebHDFS GET operations
+        call: hadoop.webhdfsget
+        with:
+          path: rest.path
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /webhdfs/v1/{path}
+      name: webhdfsput
+      operations:
+      - method: PUT
+        name: webhdfsput
+        description: WebHDFS PUT operations
+        call: hadoop.webhdfsput
+        with:
+          path: rest.path
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /webhdfs/v1/{path}
+      name: webhdfspost
+      operations:
+      - method: POST
+        name: webhdfspost
+        description: WebHDFS POST operations
+        call: hadoop.webhdfspost
+        with:
+          path: rest.path
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /webhdfs/v1/{path}
+      name: webhdfsdelete
+      operations:
+      - method: DELETE
+        name: webhdfsdelete
+        description: WebHDFS DELETE
+        call: hadoop.webhdfsdelete
+        with:
+          path: rest.path
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/info
+      name: getclusterinfo
+      operations:
+      - method: GET
+        name: getclusterinfo
+        description: Cluster info
+        call: hadoop.getclusterinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/metrics
+      name: getclustermetrics
+      operations:
+      - method: GET
+        name: getclustermetrics
+        description: Cluster metrics
+        call: hadoop.getclustermetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/scheduler
+      name: getscheduler
+      operations:
+      - method: GET
+        name: getscheduler
+        description: Scheduler info
+        call: hadoop.getscheduler
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/apps
+      name: listapps
+      operations:
+      - method: GET
+        name: listapps
+        description: List applications
+        call: hadoop.listapps
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/apps
+      name: submitapp
+      operations:
+      - method: POST
+        name: submitapp
+        description: Submit a new application
+        call: hadoop.submitapp
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/apps/{appid}
+      name: getapp
+      operations:
+      - method: GET
+        name: getapp
+        description: Application details
+        call: hadoop.getapp
+        with:
+          appid: rest.appid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/apps/{appid}/state
+      name: updateappstate
+      operations:
+      - method: PUT
+        name: updateappstate
+        description: Update application state
+        call: hadoop.updateappstate
+        with:
+          appid: rest.appid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/apps/{appid}/queue
+      name: updateappqueue
+      operations:
+      - method: PUT
+        name: updateappqueue
+        description: Move application to a different queue
+        call: hadoop.updateappqueue
+        with:
+          appid: rest.appid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/apps/{appid}/priority
+      name: updateapppriority
+      operations:
+      - method: PUT
+        name: updateapppriority
+        description: Update application priority
+        call: hadoop.updateapppriority
+        with:
+          appid: rest.appid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/apps/{appid}/appattempts
+      name: listappattempts
+      operations:
+      - method: GET
+        name: listappattempts
+        description: List application attempts
+        call: hadoop.listappattempts
+        with:
+          appid: rest.appid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/nodes
+      name: listnodes
+      operations:
+      - method: GET
+        name: listnodes
+        description: List nodes
+        call: hadoop.listnodes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/nodes/{nodeid}
+      name: getnode
+      operations:
+      - method: GET
+        name: getnode
+        description: Node details
+        call: hadoop.getnode
+        with:
+          nodeid: rest.nodeid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ws/v1/cluster/appstatistics
+      name: getappstatistics
+      operations:
+      - method: GET
+        name: getappstatistics
+        description: Application statistics
+        call: hadoop.getappstatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: hadoop-mcp
+    transport: http
+    description: MCP adapter for Apache Hadoop REST APIs for AI agent use.
+    tools:
+    - name: webhdfsget
+      description: WebHDFS GET operations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop.webhdfsget
+      with:
+        path: tools.path
+        op: tools.op
+      inputParameters:
+      - name: path
+        type: string
+        description: path
+        required: true
+      - name: op
+        type: string
+        description: op
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: webhdfsput
+      description: WebHDFS PUT operations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: hadoop.webhdfsput
+      with:
+        path: tools.path
+        op: tools.op
+      inputParameters:
+      - name: path
+        type: string
+        description: path
+        required: true
+      - name: op
+        type: string
+        description: op
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: webhdfspost
+      description: WebHDFS POST operations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: hadoop.webhdfspost
+      with:
+        path: tools.path
+        op: tools.op
+      inputParameters:
+      - name: path
+        type: string
+        description: path
+        required: true
+      - name: op
+        type: string
+        description: op
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: webhdfsdelete
+      description: WebHDFS DELETE
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: hadoop.webhdfsdelete
+      with:
+        path: tools.path
+        op: tools.op
+      inputParameters:
+      - name: path
+        type: string
+        description: path
+        required: true
+      - name: op
+        type: string
+        description: op
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getclusterinfo
+      description: Cluster info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop.getclusterinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getclustermetrics
+      description: Cluster metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop.getclustermetrics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getscheduler
+      description: Scheduler info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop.getscheduler
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listapps
+      description: List applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop.listapps
+      with:
+        state: tools.state
+        user: tools.user
+        queue: tools.queue
+      inputParameters:
+      - name: state
+        type: string
+        description: state
+      - name: user
+        type: string
+        description: user
+      - name: queue
+        type: string
+        description: queue
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: submitapp
+      description: Submit a new application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: hadoop.submitapp
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getapp
+      description: Application details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop.getapp
+      with:
+        appid: tools.appid
+      inputParameters:
+      - name: appid
+        type: string
+        description: appid
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateappstate
+      description: Update application state
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: hadoop.updateappstate
+      with:
+        appid: tools.appid
+      inputParameters:
+      - name: appid
+        type: string
+        description: appid
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateappqueue
+      description: Move application to a different queue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: hadoop.updateappqueue
+      with:
+        appid: tools.appid
+      inputParameters:
+      - name: appid
+        type: string
+        description: appid
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updateapppriority
+      description: Update application priority
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: hadoop.updateapppriority
+      with:
+        appid: tools.appid
+      inputParameters:
+      - name: appid
+        type: string
+        description: appid
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listappattempts
+      description: List application attempts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop.listappattempts
+      with:
+        appid: tools.appid
+      inputParameters:
+      - name: appid
+        type: string
+        description: appid
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listnodes
+      description: List nodes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop.listnodes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getnode
+      description: Node details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop.getnode
+      with:
+        nodeid: tools.nodeid
+      inputParameters:
+      - name: nodeid
+        type: string
+        description: nodeid
+        required: true
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getappstatistics
+      description: Application statistics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop.getappstatistics
+      outputParameters:
+      - type: object
+        mapping: $.
