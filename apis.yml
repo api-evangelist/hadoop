@@ -85,15 +85,15 @@ common:
     url: https://hadoop.apache.org/
   - type: Documentation
     url: https://hadoop.apache.org/docs/stable/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/apache/hadoop
   - type: Community
     url: https://hadoop.apache.org/mailing_lists.html
-  - type: Change Log
+  - type: ChangeLog
     url: https://hadoop.apache.org/releases.html
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.apache.org/licenses/LICENSE-2.0
 maintainers:
   - FN: Kin Lane
