@@ -1,0 +1,347 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache Hadoop REST APIs — YARN Applications
+  description: 'Apache Hadoop REST APIs — YARN Applications. 8 operations. Lead operation: List applications. Self-contained
+    Naftiko capability covering one Hadoop business surface.'
+  tags:
+  - Hadoop
+  - YARN Applications
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HADOOP_API_KEY: HADOOP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: hadoop-yarn-applications
+    baseUri: http://{host}:{port}
+    description: Apache Hadoop REST APIs — YARN Applications business capability. Self-contained, no shared references.
+    resources:
+    - name: ws-v1-cluster-apps
+      path: /ws/v1/cluster/apps
+      operations:
+      - name: listapps
+        method: GET
+        description: List applications
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: state
+          in: query
+          type: string
+        - name: user
+          in: query
+          type: string
+        - name: queue
+          in: query
+          type: string
+      - name: submitapp
+        method: POST
+        description: Submit a new application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-apps-appid
+      path: /ws/v1/cluster/apps/{appid}
+      operations:
+      - name: getapp
+        method: GET
+        description: Application details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: appid
+          in: path
+          type: string
+          required: true
+    - name: ws-v1-cluster-apps-appid-appattempts
+      path: /ws/v1/cluster/apps/{appid}/appattempts
+      operations:
+      - name: listappattempts
+        method: GET
+        description: List application attempts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: appid
+          in: path
+          type: string
+          required: true
+    - name: ws-v1-cluster-apps-appid-priority
+      path: /ws/v1/cluster/apps/{appid}/priority
+      operations:
+      - name: updateapppriority
+        method: PUT
+        description: Update application priority
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: appid
+          in: path
+          type: string
+          required: true
+    - name: ws-v1-cluster-apps-appid-queue
+      path: /ws/v1/cluster/apps/{appid}/queue
+      operations:
+      - name: updateappqueue
+        method: PUT
+        description: Move application to a different queue
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: appid
+          in: path
+          type: string
+          required: true
+    - name: ws-v1-cluster-apps-appid-state
+      path: /ws/v1/cluster/apps/{appid}/state
+      operations:
+      - name: updateappstate
+        method: PUT
+        description: Update application state
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: appid
+          in: path
+          type: string
+          required: true
+    - name: ws-v1-cluster-appstatistics
+      path: /ws/v1/cluster/appstatistics
+      operations:
+      - name: getappstatistics
+        method: GET
+        description: Application statistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: hadoop-yarn-applications-rest
+    port: 8080
+    description: REST adapter for Apache Hadoop REST APIs — YARN Applications. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/ws/v1/cluster/apps
+      name: ws-v1-cluster-apps
+      description: REST surface for ws-v1-cluster-apps.
+      operations:
+      - method: GET
+        name: listapps
+        description: List applications
+        call: hadoop-yarn-applications.listapps
+        with:
+          state: rest.state
+          user: rest.user
+          queue: rest.queue
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: submitapp
+        description: Submit a new application
+        call: hadoop-yarn-applications.submitapp
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ws/v1/cluster/apps/{appid}
+      name: ws-v1-cluster-apps-appid
+      description: REST surface for ws-v1-cluster-apps-appid.
+      operations:
+      - method: GET
+        name: getapp
+        description: Application details
+        call: hadoop-yarn-applications.getapp
+        with:
+          appid: rest.appid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ws/v1/cluster/apps/{appid}/appattempts
+      name: ws-v1-cluster-apps-appid-appattempts
+      description: REST surface for ws-v1-cluster-apps-appid-appattempts.
+      operations:
+      - method: GET
+        name: listappattempts
+        description: List application attempts
+        call: hadoop-yarn-applications.listappattempts
+        with:
+          appid: rest.appid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ws/v1/cluster/apps/{appid}/priority
+      name: ws-v1-cluster-apps-appid-priority
+      description: REST surface for ws-v1-cluster-apps-appid-priority.
+      operations:
+      - method: PUT
+        name: updateapppriority
+        description: Update application priority
+        call: hadoop-yarn-applications.updateapppriority
+        with:
+          appid: rest.appid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ws/v1/cluster/apps/{appid}/queue
+      name: ws-v1-cluster-apps-appid-queue
+      description: REST surface for ws-v1-cluster-apps-appid-queue.
+      operations:
+      - method: PUT
+        name: updateappqueue
+        description: Move application to a different queue
+        call: hadoop-yarn-applications.updateappqueue
+        with:
+          appid: rest.appid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ws/v1/cluster/apps/{appid}/state
+      name: ws-v1-cluster-apps-appid-state
+      description: REST surface for ws-v1-cluster-apps-appid-state.
+      operations:
+      - method: PUT
+        name: updateappstate
+        description: Update application state
+        call: hadoop-yarn-applications.updateappstate
+        with:
+          appid: rest.appid
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ws/v1/cluster/appstatistics
+      name: ws-v1-cluster-appstatistics
+      description: REST surface for ws-v1-cluster-appstatistics.
+      operations:
+      - method: GET
+        name: getappstatistics
+        description: Application statistics
+        call: hadoop-yarn-applications.getappstatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: hadoop-yarn-applications-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache Hadoop REST APIs — YARN Applications. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: list-applications
+      description: List applications
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop-yarn-applications.listapps
+      with:
+        state: tools.state
+        user: tools.user
+        queue: tools.queue
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: submit-new-application
+      description: Submit a new application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: hadoop-yarn-applications.submitapp
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-details
+      description: Application details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop-yarn-applications.getapp
+      with:
+        appid: tools.appid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-application-attempts
+      description: List application attempts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop-yarn-applications.listappattempts
+      with:
+        appid: tools.appid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-application-priority
+      description: Update application priority
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: hadoop-yarn-applications.updateapppriority
+      with:
+        appid: tools.appid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: move-application-different-queue
+      description: Move application to a different queue
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: hadoop-yarn-applications.updateappqueue
+      with:
+        appid: tools.appid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-application-state
+      description: Update application state
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: hadoop-yarn-applications.updateappstate
+      with:
+        appid: tools.appid
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: application-statistics
+      description: Application statistics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop-yarn-applications.getappstatistics
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,108 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache Hadoop REST APIs — YARN Nodes
+  description: 'Apache Hadoop REST APIs — YARN Nodes. 2 operations. Lead operation: List nodes. Self-contained Naftiko capability
+    covering one Hadoop business surface.'
+  tags:
+  - Hadoop
+  - YARN Nodes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HADOOP_API_KEY: HADOOP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: hadoop-yarn-nodes
+    baseUri: http://{host}:{port}
+    description: Apache Hadoop REST APIs — YARN Nodes business capability. Self-contained, no shared references.
+    resources:
+    - name: ws-v1-cluster-nodes
+      path: /ws/v1/cluster/nodes
+      operations:
+      - name: listnodes
+        method: GET
+        description: List nodes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ws-v1-cluster-nodes-nodeid
+      path: /ws/v1/cluster/nodes/{nodeid}
+      operations:
+      - name: getnode
+        method: GET
+        description: Node details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: nodeid
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: hadoop-yarn-nodes-rest
+    port: 8080
+    description: REST adapter for Apache Hadoop REST APIs — YARN Nodes. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/ws/v1/cluster/nodes
+      name: ws-v1-cluster-nodes
+      description: REST surface for ws-v1-cluster-nodes.
+      operations:
+      - method: GET
+        name: listnodes
+        description: List nodes
+        call: hadoop-yarn-nodes.listnodes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ws/v1/cluster/nodes/{nodeid}
+      name: ws-v1-cluster-nodes-nodeid
+      description: REST surface for ws-v1-cluster-nodes-nodeid.
+      operations:
+      - method: GET
+        name: getnode
+        description: Node details
+        call: hadoop-yarn-nodes.getnode
+        with:
+          nodeid: rest.nodeid
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: hadoop-yarn-nodes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache Hadoop REST APIs — YARN Nodes. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-nodes
+      description: List nodes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop-yarn-nodes.listnodes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: node-details
+      description: Node details
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop-yarn-nodes.getnode
+      with:
+        nodeid: tools.nodeid
+      outputParameters:
+      - type: object
+        mapping: $.

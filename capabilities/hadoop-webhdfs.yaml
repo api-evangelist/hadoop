@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache Hadoop REST APIs — WebHDFS
+  description: 'Apache Hadoop REST APIs — WebHDFS. 4 operations. Lead operation: WebHDFS GET operations. Self-contained Naftiko
+    capability covering one Hadoop business surface.'
+  tags:
+  - Hadoop
+  - WebHDFS
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HADOOP_API_KEY: HADOOP_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: hadoop-webhdfs
+    baseUri: http://{host}:{port}
+    description: Apache Hadoop REST APIs — WebHDFS business capability. Self-contained, no shared references.
+    resources:
+    - name: webhdfs-v1-path
+      path: /webhdfs/v1/{path}
+      operations:
+      - name: webhdfsget
+        method: GET
+        description: WebHDFS GET operations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: path
+          in: path
+          type: string
+          required: true
+        - name: op
+          in: query
+          type: string
+          required: true
+      - name: webhdfsput
+        method: PUT
+        description: WebHDFS PUT operations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: path
+          in: path
+          type: string
+          required: true
+        - name: op
+          in: query
+          type: string
+          required: true
+      - name: webhdfspost
+        method: POST
+        description: WebHDFS POST operations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: path
+          in: path
+          type: string
+          required: true
+        - name: op
+          in: query
+          type: string
+          required: true
+      - name: webhdfsdelete
+        method: DELETE
+        description: WebHDFS DELETE
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: path
+          in: path
+          type: string
+          required: true
+        - name: op
+          in: query
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: hadoop-webhdfs-rest
+    port: 8080
+    description: REST adapter for Apache Hadoop REST APIs — WebHDFS. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/webhdfs/v1/{path}
+      name: webhdfs-v1-path
+      description: REST surface for webhdfs-v1-path.
+      operations:
+      - method: GET
+        name: webhdfsget
+        description: WebHDFS GET operations
+        call: hadoop-webhdfs.webhdfsget
+        with:
+          path: rest.path
+          op: rest.op
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: webhdfsput
+        description: WebHDFS PUT operations
+        call: hadoop-webhdfs.webhdfsput
+        with:
+          path: rest.path
+          op: rest.op
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: webhdfspost
+        description: WebHDFS POST operations
+        call: hadoop-webhdfs.webhdfspost
+        with:
+          path: rest.path
+          op: rest.op
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: webhdfsdelete
+        description: WebHDFS DELETE
+        call: hadoop-webhdfs.webhdfsdelete
+        with:
+          path: rest.path
+          op: rest.op
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: hadoop-webhdfs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache Hadoop REST APIs — WebHDFS. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: webhdfs-get-operations
+      description: WebHDFS GET operations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: hadoop-webhdfs.webhdfsget
+      with:
+        path: tools.path
+        op: tools.op
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: webhdfs-put-operations
+      description: WebHDFS PUT operations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: hadoop-webhdfs.webhdfsput
+      with:
+        path: tools.path
+        op: tools.op
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: webhdfs-post-operations
+      description: WebHDFS POST operations
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: hadoop-webhdfs.webhdfspost
+      with:
+        path: tools.path
+        op: tools.op
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: webhdfs-delete
+      description: WebHDFS DELETE
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: hadoop-webhdfs.webhdfsdelete
+      with:
+        path: tools.path
+        op: tools.op
+      outputParameters:
+      - type: object
+        mapping: $.
