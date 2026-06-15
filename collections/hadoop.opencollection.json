@@ -1,0 +1,336 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Hadoop REST APIs",
+    "version": "stable"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WebHDFS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "WebHDFS GET operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/webhdfs/v1/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "op",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "File or directory operations selected by the `op` query parameter: OPEN, GETFILESTATUS, LISTSTATUS, LISTSTATUS_BATCH, GETCONTENTSUMMARY, GETFILECHECKSUM, GETHOMEDIRECTORY, GETXATTRS, GETACLSTATUS."
+        },
+        {
+          "info": {
+            "name": "WebHDFS POST operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/webhdfs/v1/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "op",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "APPEND, CONCAT, or TRUNCATE selected by `op`."
+        },
+        {
+          "info": {
+            "name": "WebHDFS PUT operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{host}:{port}/webhdfs/v1/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "op",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Mutation operations selected by `op`: CREATE, MKDIRS, RENAME, SETPERMISSION, SETOWNER, SETREPLICATION, SETXATTR, SETACL."
+        },
+        {
+          "info": {
+            "name": "WebHDFS DELETE",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{host}:{port}/webhdfs/v1/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "op",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete a file or directory."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "YARN Cluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cluster info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/info"
+          },
+          "docs": "Cluster info"
+        },
+        {
+          "info": {
+            "name": "Cluster metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/metrics"
+          },
+          "docs": "Cluster metrics"
+        },
+        {
+          "info": {
+            "name": "Scheduler info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/scheduler"
+          },
+          "docs": "Scheduler info"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "YARN Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List applications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/apps",
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "queue",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List applications"
+        },
+        {
+          "info": {
+            "name": "Submit a new application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/ws/v1/cluster/apps"
+          },
+          "docs": "Submit a new application"
+        },
+        {
+          "info": {
+            "name": "Application details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/apps/:appid",
+            "params": [
+              {
+                "name": "appid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Application details"
+        },
+        {
+          "info": {
+            "name": "Update application state",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{host}:{port}/ws/v1/cluster/apps/:appid/state",
+            "params": [
+              {
+                "name": "appid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update application state"
+        },
+        {
+          "info": {
+            "name": "Move application to a different queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{host}:{port}/ws/v1/cluster/apps/:appid/queue",
+            "params": [
+              {
+                "name": "appid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Move application to a different queue"
+        },
+        {
+          "info": {
+            "name": "Update application priority",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{host}:{port}/ws/v1/cluster/apps/:appid/priority",
+            "params": [
+              {
+                "name": "appid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update application priority"
+        },
+        {
+          "info": {
+            "name": "List application attempts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/apps/:appid/appattempts",
+            "params": [
+              {
+                "name": "appid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List application attempts"
+        },
+        {
+          "info": {
+            "name": "Application statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/appstatistics"
+          },
+          "docs": "Application statistics"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "YARN Nodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List nodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/nodes"
+          },
+          "docs": "List nodes"
+        },
+        {
+          "info": {
+            "name": "Node details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/nodes/:nodeid",
+            "params": [
+              {
+                "name": "nodeid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Node details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
