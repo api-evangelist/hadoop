@@ -80,6 +80,10 @@ apis:
       - type: Documentation
         url: https://hadoop.apache.org/docs/stable/hadoop-hdfs-httpfs/index.html
 common:
+  - type: VulnerabilityDisclosure
+    url: security/hadoop-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/hadoop-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/showcase/hadoop
   - type: Website
