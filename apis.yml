@@ -80,6 +80,8 @@ apis:
       - type: Documentation
         url: https://hadoop.apache.org/docs/stable/hadoop-hdfs-httpfs/index.html
 common:
+  - type: AgenticAccess
+    url: agentic-access/hadoop-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/hadoop-vulnerability-disclosure.yml
   - type: DomainSecurity
