@@ -1,0 +1,137 @@
+openapi: 3.0.3
+info:
+  title: Apache Hadoop REST APIs WebHDFS YARN Applications API
+  description: Aggregated OpenAPI definition for the public REST APIs exposed by Apache Hadoop. Includes WebHDFS for filesystem operations and the YARN ResourceManager for cluster, application, and node management.
+  version: stable
+  contact:
+    name: Apache Hadoop
+    url: https://hadoop.apache.org/
+  license:
+    name: Apache License 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://{host}:{port}
+  description: Hadoop service host
+  variables:
+    host:
+      default: localhost
+    port:
+      default: '50070'
+tags:
+- name: YARN Applications
+  description: Application listing, submission, and lifecycle.
+paths:
+  /ws/v1/cluster/apps:
+    get:
+      summary: List applications
+      operationId: listApps
+      tags:
+      - YARN Applications
+      parameters:
+      - name: state
+        in: query
+        schema:
+          type: string
+      - name: user
+        in: query
+        schema:
+          type: string
+      - name: queue
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Applications list
+    post:
+      summary: Submit a new application
+      operationId: submitApp
+      tags:
+      - YARN Applications
+      responses:
+        '202':
+          description: Submitted
+  /ws/v1/cluster/apps/{appid}:
+    get:
+      summary: Application details
+      operationId: getApp
+      tags:
+      - YARN Applications
+      parameters:
+      - name: appid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Application details
+  /ws/v1/cluster/apps/{appid}/state:
+    put:
+      summary: Update application state
+      operationId: updateAppState
+      tags:
+      - YARN Applications
+      parameters:
+      - name: appid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: State updated
+  /ws/v1/cluster/apps/{appid}/queue:
+    put:
+      summary: Move application to a different queue
+      operationId: updateAppQueue
+      tags:
+      - YARN Applications
+      parameters:
+      - name: appid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Queue updated
+  /ws/v1/cluster/apps/{appid}/priority:
+    put:
+      summary: Update application priority
+      operationId: updateAppPriority
+      tags:
+      - YARN Applications
+      parameters:
+      - name: appid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Priority updated
+  /ws/v1/cluster/apps/{appid}/appattempts:
+    get:
+      summary: List application attempts
+      operationId: listAppAttempts
+      tags:
+      - YARN Applications
+      parameters:
+      - name: appid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Application attempts
+  /ws/v1/cluster/appstatistics:
+    get:
+      summary: Application statistics
+      operationId: getAppStatistics
+      tags:
+      - YARN Applications
+      responses:
+        '200':
+          description: Application statistics by type and state

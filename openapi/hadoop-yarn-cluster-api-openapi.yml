@@ -1,0 +1,50 @@
+openapi: 3.0.3
+info:
+  title: Apache Hadoop REST APIs WebHDFS YARN Cluster API
+  description: Aggregated OpenAPI definition for the public REST APIs exposed by Apache Hadoop. Includes WebHDFS for filesystem operations and the YARN ResourceManager for cluster, application, and node management.
+  version: stable
+  contact:
+    name: Apache Hadoop
+    url: https://hadoop.apache.org/
+  license:
+    name: Apache License 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://{host}:{port}
+  description: Hadoop service host
+  variables:
+    host:
+      default: localhost
+    port:
+      default: '50070'
+tags:
+- name: YARN Cluster
+  description: Cluster information and metrics.
+paths:
+  /ws/v1/cluster/info:
+    get:
+      summary: Cluster info
+      operationId: getClusterInfo
+      tags:
+      - YARN Cluster
+      responses:
+        '200':
+          description: Cluster info
+  /ws/v1/cluster/metrics:
+    get:
+      summary: Cluster metrics
+      operationId: getClusterMetrics
+      tags:
+      - YARN Cluster
+      responses:
+        '200':
+          description: Cluster metrics
+  /ws/v1/cluster/scheduler:
+    get:
+      summary: Scheduler info
+      operationId: getScheduler
+      tags:
+      - YARN Cluster
+      responses:
+        '200':
+          description: Scheduler details

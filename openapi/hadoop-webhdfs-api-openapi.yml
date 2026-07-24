@@ -1,0 +1,129 @@
+openapi: 3.0.3
+info:
+  title: Apache Hadoop REST APIs WebHDFS API
+  description: Aggregated OpenAPI definition for the public REST APIs exposed by Apache Hadoop. Includes WebHDFS for filesystem operations and the YARN ResourceManager for cluster, application, and node management.
+  version: stable
+  contact:
+    name: Apache Hadoop
+    url: https://hadoop.apache.org/
+  license:
+    name: Apache License 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://{host}:{port}
+  description: Hadoop service host
+  variables:
+    host:
+      default: localhost
+    port:
+      default: '50070'
+tags:
+- name: WebHDFS
+  description: HDFS filesystem REST operations under /webhdfs/v1.
+paths:
+  /webhdfs/v1/{path}:
+    get:
+      summary: WebHDFS GET operations
+      description: 'File or directory operations selected by the `op` query parameter: OPEN, GETFILESTATUS, LISTSTATUS, LISTSTATUS_BATCH, GETCONTENTSUMMARY, GETFILECHECKSUM, GETHOMEDIRECTORY, GETXATTRS, GETACLSTATUS.'
+      operationId: webhdfsGet
+      tags:
+      - WebHDFS
+      parameters:
+      - name: path
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: op
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - OPEN
+          - GETFILESTATUS
+          - LISTSTATUS
+          - LISTSTATUS_BATCH
+          - GETCONTENTSUMMARY
+          - GETFILECHECKSUM
+          - GETHOMEDIRECTORY
+          - GETXATTRS
+          - GETACLSTATUS
+      responses:
+        '200':
+          description: Operation result
+    put:
+      summary: WebHDFS PUT operations
+      description: 'Mutation operations selected by `op`: CREATE, MKDIRS, RENAME, SETPERMISSION, SETOWNER, SETREPLICATION, SETXATTR, SETACL.'
+      operationId: webhdfsPut
+      tags:
+      - WebHDFS
+      parameters:
+      - name: path
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: op
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - CREATE
+          - MKDIRS
+          - RENAME
+          - SETPERMISSION
+          - SETOWNER
+          - SETREPLICATION
+          - SETXATTR
+          - SETACL
+      responses:
+        '200':
+          description: Operation result
+    post:
+      summary: WebHDFS POST operations
+      description: APPEND, CONCAT, or TRUNCATE selected by `op`.
+      operationId: webhdfsPost
+      tags:
+      - WebHDFS
+      parameters:
+      - name: path
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: op
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - APPEND
+          - CONCAT
+          - TRUNCATE
+      responses:
+        '200':
+          description: Operation result
+    delete:
+      summary: WebHDFS DELETE
+      description: Delete a file or directory.
+      operationId: webhdfsDelete
+      tags:
+      - WebHDFS
+      parameters:
+      - name: path
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: op
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DELETE
+      responses:
+        '200':
+          description: Deletion result
