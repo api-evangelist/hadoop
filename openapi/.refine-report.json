@@ -1,0 +1,20 @@
+{
+  "provider": "hadoop",
+  "sources": [
+    "hadoop-webhdfs-api-openapi.yml",
+    "hadoop-yarn-applications-api-openapi.yml",
+    "hadoop-yarn-cluster-api-openapi.yml",
+    "hadoop-yarn-nodes-api-openapi.yml"
+  ],
+  "outputs": [
+    "hadoop-webhdfs-api-openapi.yml",
+    "hadoop-yarn-applications-api-openapi.yml",
+    "hadoop-yarn-cluster-api-openapi.yml",
+    "hadoop-yarn-nodes-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
