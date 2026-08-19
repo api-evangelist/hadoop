@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Hadoop REST APIs WebHDFS YARN Nodes API",
+    "version": "stable"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "YARN Nodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List nodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/nodes"
+          },
+          "docs": "List nodes"
+        },
+        {
+          "info": {
+            "name": "Node details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/nodes/:nodeid",
+            "params": [
+              {
+                "name": "nodeid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Node details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

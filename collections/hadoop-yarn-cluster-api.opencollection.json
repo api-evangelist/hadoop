@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Hadoop REST APIs WebHDFS YARN Cluster API",
+    "version": "stable"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "YARN Cluster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cluster info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/info"
+          },
+          "docs": "Cluster info"
+        },
+        {
+          "info": {
+            "name": "Cluster metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/metrics"
+          },
+          "docs": "Cluster metrics"
+        },
+        {
+          "info": {
+            "name": "Scheduler info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/ws/v1/cluster/scheduler"
+          },
+          "docs": "Scheduler info"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

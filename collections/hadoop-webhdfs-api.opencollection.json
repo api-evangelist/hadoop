@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache Hadoop REST APIs WebHDFS API",
+    "version": "stable"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WebHDFS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "WebHDFS GET operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://{host}:{port}/webhdfs/v1/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "op",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "File or directory operations selected by the `op` query parameter: OPEN, GETFILESTATUS, LISTSTATUS, LISTSTATUS_BATCH, GETCONTENTSUMMARY, GETFILECHECKSUM, GETHOMEDIRECTORY, GETXATTRS, GETACLSTATUS."
+        },
+        {
+          "info": {
+            "name": "WebHDFS POST operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "http://{host}:{port}/webhdfs/v1/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "op",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "APPEND, CONCAT, or TRUNCATE selected by `op`."
+        },
+        {
+          "info": {
+            "name": "WebHDFS PUT operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "http://{host}:{port}/webhdfs/v1/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "op",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Mutation operations selected by `op`: CREATE, MKDIRS, RENAME, SETPERMISSION, SETOWNER, SETREPLICATION, SETXATTR, SETACL."
+        },
+        {
+          "info": {
+            "name": "WebHDFS DELETE",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "http://{host}:{port}/webhdfs/v1/:path",
+            "params": [
+              {
+                "name": "path",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "op",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete a file or directory."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
