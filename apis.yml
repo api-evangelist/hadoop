@@ -28,6 +28,13 @@ tags:
   - Distributed Computing
   - HDFS
   - MapReduce
+  - Open-Source
+tags_raw:
+  - Big Data
+  - Data Processing
+  - Distributed Computing
+  - HDFS
+  - MapReduce
   - Open Source
 apis:
 - aid: hadoop:mapreduce-history-server-api
@@ -49,6 +56,10 @@ apis:
   humanURL: https://hadoop.apache.org/docs/stable/hadoop-hdfs-httpfs/index.html
   baseURL: http://httpfs-host:port/webhdfs/v1/
   tags:
+  - Filesystem
+  - Gateway
+  - REST API
+  tags_raw:
   - File System
   - Gateway
   - REST API
