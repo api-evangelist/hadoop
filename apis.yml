@@ -4,6 +4,18 @@ description: >-
   Apache Hadoop is an open-source framework for distributed storage and processing of large datasets across clusters of
   computers using simple programming models. It includes HDFS for distributed storage, YARN for resource management, and
   MapReduce for parallel data processing.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
