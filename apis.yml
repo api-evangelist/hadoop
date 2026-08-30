@@ -68,7 +68,7 @@ apis:
   humanURL: https://hadoop.apache.org/docs/stable/hadoop-hdfs-httpfs/index.html
   baseURL: http://httpfs-host:port/webhdfs/v1/
   tags:
-  - Filesystem
+  - File System
   - Gateway
   - REST API
   tags_raw:
