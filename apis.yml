@@ -69,7 +69,7 @@ apis:
   baseURL: http://httpfs-host:port/webhdfs/v1/
   tags:
   - Filesystem
-  - Gateway
+  - Gateways
   - REST API
   tags_raw:
   - File System
