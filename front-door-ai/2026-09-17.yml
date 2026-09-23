@@ -1,0 +1,27 @@
+# Front Door AI Index — hadoop — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: hadoop
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: hadoop.apache.org
+  final_host: hadoop.apache.org
+  ownership: own
+  owner: hadoop
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 5
+  host_score: 5
+  density: 5.05
+  words: 990
+  tiers:
+    agentic: 0
+    core: 5
+    model: 0
+  ambiguous: 0
+  top_terms:
+    machine learning: 3
+    AI: 1
+    deep learning: 1
