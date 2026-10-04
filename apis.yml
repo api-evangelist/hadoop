@@ -148,6 +148,9 @@ apis:
     url: >-
       https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html
 common:
+  - type: CapabilityMap
+    url: capabilities/hadoop-capability-edges.yml
+    name: Apache Hadoop Business Capability Map
   - type: AgenticAccess
     url: agentic-access/hadoop-agentic-access.yml
   - type: VulnerabilityDisclosure
