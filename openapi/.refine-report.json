@@ -1,26 +1,19 @@
 {
   "provider": "hadoop",
   "sources": [
-    "_original/hadoop-openapi.yml"
+    "_original/hadoop-openapi.json"
   ],
   "outputs": [
-    "hadoop-webhdfs-api-openapi.yml",
-    "hadoop-yarn-applications-api-openapi.yml",
-    "hadoop-yarn-cluster-api-openapi.yml",
-    "hadoop-yarn-nodes-api-openapi.yml"
+    "hadoop-queues-api-openapi.yml",
+    "hadoop-status-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "hadoop-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "hadoop-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+2 apis, 4 total)"
   ],
-  "skipped": [
-    "hadoop-webhdfs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "hadoop-yarn-applications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "hadoop-yarn-cluster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "hadoop-yarn-nodes-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }
