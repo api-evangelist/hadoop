@@ -1,4 +1,4 @@
-# Apache Hadoop (hadoop)
+# Apache Hadoop
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,119 +66,126 @@
 
 Apache Hadoop is an open-source framework for distributed storage and processing of large datasets across clusters of computers using simple programming models. It includes HDFS for distributed storage, YARN for resource management, and MapReduce for parallel data processing.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/apis.yml)
+**Areas:** Big Data · Data Processing · Distributed Computing · HDFS · MapReduce · Open Source
 
-## Scope
+## Apache Hadoop on APIs.io
 
-- **Type:** Index
+Everything profiled for Apache Hadoop is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/hadoop/](https://apis.io/providers/hadoop/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Big Data
-- Data Processing
-- Distributed Computing
-- HDFS
-- MapReduce
-- Open Source
+- [MapReduce History Server REST API](https://apis.io/apis/hadoop/mapreduce-history-server-api/) — REST API for accessing MapReduce job history and statistics.
+- [HttpFS REST API](https://apis.io/apis/hadoop/httpfs-rest-api/) — HTTP REST API gateway supporting both webhdfs and httpfs operations for HDFS access.
+- [Apache Hadoop WebHDFS API](https://apis.io/apis/hadoop/hadoop-webhdfs-api/) — HDFS filesystem REST operations under /webhdfs/v1.
+- [Apache Hadoop YARN Applications API](https://apis.io/apis/hadoop/hadoop-yarn-applications-api/) — Application listing, submission, and lifecycle.
+- [Apache Hadoop YARN Cluster API](https://apis.io/apis/hadoop/hadoop-yarn-cluster-api/) — Cluster information and metrics.
+- [Apache Hadoop YARN Nodes API](https://apis.io/apis/hadoop/hadoop-yarn-nodes-api/) — Cluster node listing and resource updates.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### HDFS REST API (WebHDFS)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-RESTful API for Hadoop Distributed File System operations including file operations, directory operations, and file status queries.
+- [Hadoop Agentic Access](https://apis.io/agentic-access/hadoop/hadoop-agentic-access/)
 
-- **Human URL:** [https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html)
-- **Base URL:** `http://host:port/webhdfs/v1/`
+#### Collections (5)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- File System
-- REST API
-- Storage
+- [Apache Hadoop REST APIs](https://apis.io/collections/hadoop/open-hadoop/)
+- [Apache Hadoop REST APIs WebHDFS API](https://apis.io/collections/hadoop/open-hadoop-webhdfs-api/)
+- [Apache Hadoop REST APIs WebHDFS YARN Applications API](https://apis.io/collections/hadoop/open-hadoop-yarn-applications-api/)
+- [Apache Hadoop REST APIs WebHDFS YARN Cluster API](https://apis.io/collections/hadoop/open-hadoop-yarn-cluster-api/)
+- [Apache Hadoop REST APIs WebHDFS YARN Nodes API](https://apis.io/collections/hadoop/open-hadoop-yarn-nodes-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/openapi/hadoop-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Rules](https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/hadoop-rules.yml)
-- [Postman Collection](collections/hadoop.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/hadoop.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### YARN REST API
+- [Hadoop Domain Security](https://apis.io/security/hadoop/hadoop-domain-security/)
+- [Hadoop Vulnerability Disclosure](https://apis.io/security/hadoop/hadoop-vulnerability-disclosure/)
 
-RESTful API for Yet Another Resource Negotiator (YARN) for cluster resource management, application submission, and monitoring.
+#### Plans and pricing (1)
 
-- **Human URL:** [https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html)
-- **Base URL:** `http://rm-http-address:port/ws/v1/`
+Published plans, tiers and prices.
 
-#### Tags
+- [Hadoop Plans Pricing](https://apis.io/plans/hadoop/hadoop-plans-pricing/)
 
-- Cluster Management
-- Resource Management
-- REST API
+#### Rate limits (1)
 
-#### Properties
+Published request limits.
 
-- [Documentation](https://hadoop.apache.org/docs/stable/hadoop-yarn/hadoop-yarn-site/ResourceManagerRest.html)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/openapi/hadoop-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Rules](https://raw.githubusercontent.com/api-evangelist/hadoop/refs/heads/main/hadoop-rules.yml)
-- [Postman Collection](collections/hadoop.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/hadoop.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Hadoop Rate Limits](https://apis.io/rate-limits/hadoop/hadoop-rate-limits/)
 
-### MapReduce History Server REST API
+#### FinOps (1)
 
-REST API for accessing MapReduce job history and statistics.
+What the API costs to run, by operation.
 
-- **Human URL:** [https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapredAppMasterRest.html](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapredAppMasterRest.html)
+- [Hadoop Finops](https://apis.io/finops/hadoop/hadoop-finops/)
 
-#### Tags
+## Where to find this API
 
-- Job History
-- MapReduce
-- REST API
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Properties
-
-- [Documentation](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapredAppMasterRest.html)
-- [Postman Collection](collections/hadoop.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/hadoop.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### HttpFS REST API
-
-HTTP REST API gateway supporting both webhdfs and httpfs operations for HDFS access.
-
-- **Human URL:** [https://hadoop.apache.org/docs/stable/hadoop-hdfs-httpfs/index.html](https://hadoop.apache.org/docs/stable/hadoop-hdfs-httpfs/index.html)
-- **Base URL:** `http://httpfs-host:port/webhdfs/v1/`
-
-#### Tags
-
-- File System
-- Gateway
-- REST API
-
-#### Properties
-
-- [Documentation](https://hadoop.apache.org/docs/stable/hadoop-hdfs-httpfs/index.html)
-- [Postman Collection](collections/hadoop.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/hadoop.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/showcase/hadoop)
 - [Website](https://hadoop.apache.org/)
 - [Documentation](https://hadoop.apache.org/docs/stable/)
-- [Getting Started](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html)
-- [GitHub Organization](https://github.com/apache/hadoop)
-- [Community](https://hadoop.apache.org/mailing_lists.html)
+- [Getting started](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/SingleCluster.html)
 - [Changelog](https://hadoop.apache.org/releases.html)
-- [Terms of Service](https://www.apache.org/licenses/LICENSE-2.0)
+- [Terms of service](https://www.apache.org/licenses/LICENSE-2.0)
+- [GitHub](https://github.com/apache/hadoop)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 26.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 37.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 18.4 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/hadoop/](https://apis.io/providers/hadoop/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Apache Hadoop: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/hadoop/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
